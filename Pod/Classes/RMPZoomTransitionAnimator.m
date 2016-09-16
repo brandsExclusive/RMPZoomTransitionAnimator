@@ -64,7 +64,9 @@ static const NSTimeInterval kBackwardCompleteAnimationDuration = 0.18;
     // Transition source of image to move me to add to the last
     UIImageView *sourceImageView = [self.sourceTransition transitionSourceImageView];
     [containerView addSubview:sourceImageView];
-    
+    //**** added by SJ to support no translucent navigation bars
+    toVC.view.frame = [transitionContext finalFrameForViewController:toVC];
+    //**** end added by SJ
     if (self.goingForward) {
         [UIView animateWithDuration:kForwardAnimationDuration
                               delay:0
